@@ -9,22 +9,47 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div id = "Container">
-        <div id="title-section">
+    <main class = "Game-Container">
+        <div class="title-section">
         <h1>Simple BlackJack</h1>
         <p>Get closer to 21 than the dealer without going over. First to five wins the match.</p>
         </div>
-        <div id="instructions">
+        <div class="instructions">
+            <h2>How to Play:</h2>
             Press Start Game to deal cards. Press Hit to draw another card. Press Stand to end your turn. The dealer will draw until reaching 17 or higher.
         </div>
-        <div id="wins and losses section">
-            <div id="Win">
-                Player wins</br>
+        <div class="wins-and-losses">
+            <div>
+               <h3>Player wins</h3>
+               <p id="player-wins">0</p>
             </div>
-            <div id="loss">
-                Dealer Wins </br>
+            <div>
+                <h3>Dealer Wins</h3>
+                <p id="dealer-wins">0</p>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class = "table">
+                <div class="hand-area">
+                    <h3>Dealer:</h3>
+                    <p>Total: <span id="dealer-wins">0</span></p>
+                    <div id="dealer-cards" class="cards"></div>
+                </div>
+                <div class="Message">
+                    <p id="Game-start"> Press Start to begin.</p>
+                </div>
+                <div class="game-hand">
+                    <h3>You(the player lol)</h3>
+                    <p>Total: </p><span id="player-wins">0</span></p>
+                    <div id="player-cards" class="cards"></div>
+                </div>
+            </div>
+            <section class ="button-section">
+           <button id="start-btn">Start Game</button>
+           <button id="hit-btn" class="hidden">Hit</button>
+           <button id="stand-btn" class="hidden">Stand</button>
+           <button id="play-again-btn" class="hidden">Play Again</button>
+           <button id="reset-btn">Reset Game</button>
+        </section>
+    </main>
 </body>
 </html>
