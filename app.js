@@ -82,7 +82,15 @@ function getTotal(hand){
     return total
 }
 function hitCards(){
+let card = dealCards()
+playerHand.push(card)
+render()
 
+if (playerTotal > 21){
+    messageEl.textContent ='you lose, dealer wins'
+    dealerWins = dealerWins + 1
+    dealerWinsEl.textContent = (dealerWins)
+}
 }
 function standCards(){
 
