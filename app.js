@@ -28,5 +28,22 @@ const dealerTotalEl = document.querySelector('#dealer-total')
 const playercardsEl = document.querySelector('#player-cards')
 const dealerCardsEl = document.querySelector('#dealer-cards')
 /*----------------------------- Event Listeners -----------------------------*/
-
+elstartbutton.addEventListener('click', roundStart)
+elhitbutton.addEventListener('click', hitCards)
+elstandbutton.addEventListener('click', standCards)
+elplayagainbutton.addEventListener('click', playgameagain)
+elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
+function roundStart(){
+
+}
+function hitCards(){
+
+}
+
+function playgameagain(){
+
+}
+function resetthegame(){
+    
+}
