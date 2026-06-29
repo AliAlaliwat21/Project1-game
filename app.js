@@ -37,6 +37,8 @@ elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
 function roundStart(){
+    playerHand = []
+    dealerhand = []
     let card = dealCards()
 let card2 = dealCards()
 let card3 = dealCards()
@@ -47,10 +49,37 @@ dealerhand.push(card3)
 dealerhand.push(card4)
 console.log(playerHand)
 console.log(dealerhand)
+render()
 }
 function dealCards(){ 
     let randomIndex = Math.floor(Math.random() * deck.length)
     return deck[randomIndex]
+}
+function render(){
+    console.log('render')
+    playercardsEl.textContent = ''
+    dealerCardsEl.textContent = ''
+
+    playerHand.forEach(function(element){
+        playercardsEl.textContent += element.name + ' '
+    })
+    dealerhand.forEach(function(element){
+        dealerCardsEl.textContent += element.name + ' '
+    })
+    playerTotal = getTotal(playerHand)
+    dealerTotal = getTotal(dealerhand)
+
+    playerTotalEl.textContent = playerTotal
+    dealerTotalEl.textContent = dealerTotal
+}
+
+function getTotal(hand){
+    let total = 0
+
+    hand.forEach(function(element){
+      total = total + element.value
+    })
+    return total
 }
 function hitCards(){
 
