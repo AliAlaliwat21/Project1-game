@@ -10,6 +10,7 @@ let dealerWins = 0
 let playerTotal = 0
 let dealerTotal = 0
 
+
 let RoundOver = false
 /*------------------------ Cached Element References ------------------------*/
 const elstartbutton = document.querySelector('#start-btn')
@@ -27,6 +28,7 @@ const dealerTotalEl = document.querySelector('#dealer-total')
 
 const playercardsEl = document.querySelector('#player-cards')
 const dealerCardsEl = document.querySelector('#dealer-cards')
+
 /*----------------------------- Event Listeners -----------------------------*/
 elstartbutton.addEventListener('click', roundStart)
 elhitbutton.addEventListener('click', hitCards)
@@ -35,15 +37,20 @@ elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
 function roundStart(){
-
+return dealCards()
+}
+function dealCards(){ 
+    let randomIndex = Math.floor(Math.random() * deck.length)
 }
 function hitCards(){
 
 }
+function standCards(){
 
+}
 function playgameagain(){
 
 }
 function resetthegame(){
-    
+
 }
