@@ -37,10 +37,20 @@ elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
 function roundStart(){
-return dealCards()
+    let card = dealCards()
+let card2 = dealCards()
+let card3 = dealCards()
+let card4 = dealCards()
+playerHand.push(card)
+playerHand.push(card2)
+dealerhand.push(card3)
+dealerhand.push(card4)
+console.log(playerHand)
+console.log(dealerhand)
 }
 function dealCards(){ 
     let randomIndex = Math.floor(Math.random() * deck.length)
+    return deck[randomIndex]
 }
 function hitCards(){
 
