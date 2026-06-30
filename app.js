@@ -62,15 +62,25 @@ function dealCards(){
 }
 //render function is used to display the cards on the playercardsel variable and display the name of the cards by the element.name and get total is called at the end of the function to calculate the total.
 function render(){
-    playercardsEl.textContent = ''
-    dealerCardsEl.textContent = ''
+    playercardsEl.innerHTML = ''
+    dealerCardsEl.innerHTML = ''
 
     playerHand.forEach(function(element){
-        playercardsEl.textContent += element.name + ' '
+        let cardImg = document.createElement('img')
+        cardImg.src = element.image
+        cardImg.alt = element.name
+        cardImg.classList.add('card-img')
+
+        playercardsEl.appendChild(cardImg)
     })
-    dealerhand.forEach(function(element){
-        dealerCardsEl.textContent += element.name + ' '
-    })
+        dealerhand.forEach(function(element){
+        let cardImg = document.createElement('img')
+        cardImg.src = element.image
+        cardImg.alt = element.name
+        cardImg.classList.add('card-img')
+
+        dealerCardsEl.appendChild(cardImg)
+        })
     playerTotal = getTotal(playerHand)
     dealerTotal = getTotal(dealerhand)
 
