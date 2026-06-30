@@ -69,3 +69,31 @@ body {
   margin: 0;
   color: #fff176;
 }
+
+.table {
+  display: grid;
+  gap: 20px;
+}
+
+.hand-area,
+.game-hand,
+.Message {
+  background: rgba(255, 255, 255, 0.14);
+  border: 3px solid #ff4fd8;
+  border-radius: 24px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 18px rgba(255, 79, 216, 0.5);
+}
+
+.hand-area h3,
+.game-hand h3 {
+  color: #7ef9ff;
+  font-size: 28px;
+}
+
+.Message {
+  border-color: #fff176;
+  font-size: 24px;
+  font-weight: bold;
+}
