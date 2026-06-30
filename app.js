@@ -49,8 +49,6 @@ playerHand.push(card)
 playerHand.push(card2)
 dealerhand.push(card3)
 dealerhand.push(card4)
-console.log(playerHand)
-console.log(dealerhand)
 render()
 }
 //function which randomizes the order of cards given to you from the array in data.js
@@ -93,12 +91,20 @@ let card = dealCards()
 playerHand.push(card)
 render()
 if (playerTotal > 21){
-    messageEl.textContent ='you lose, dealer wins'
+    messageEl.textContent = 'you lose'
     dealerWins = dealerWins + 1
     dealerWinsEl.textContent = (dealerWins)
     RoundOver = true
+    if(dealerWins === 5){
+        messageEl.textContent = 'Dealer won the game. Game over'
+    }
+    else {
+        messageEl.textContent = 'You went over 21. Dealer wins.'
+    }
 }
+
 }
+//Dealer is set that if his total is under 17 he must draw so that he gets over it.
 function standCards(){
     if (RoundOver === true){
 return
@@ -143,6 +149,7 @@ function checkWinner(){
 }
 function playgameagain(){
     if (playerWins===5 || dealerWins ===5){
+
         return
     }
 roundStart()
