@@ -8,7 +8,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
   background: linear-gradient(135deg, #25114f, #0f102f, #ff4fd8);
   color: white;
 }
@@ -177,4 +177,9 @@ button{
     width:90px;
     height:auto;
     border-radius:10px;
+}
+
+
+.title-section h1{
+    font-family: "Kablammo", system-ui;
 }
