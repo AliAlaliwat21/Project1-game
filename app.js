@@ -37,7 +37,8 @@ elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
 function roundStart(){
-   messageEl.textContent='choose hit or stand'
+   RoundOver = false
+    messageEl.textContent='choose hit or stand'
     playerHand = []
     dealerhand = []
     let card = dealCards()
@@ -85,6 +86,9 @@ function getTotal(hand){
 }
 //conditions written for hit cards so that if user or dealer go below 21 one of them loses and an else condition for a tie with the render function to display it
 function hitCards(){
+    if(RoundOver=== true){
+        return
+    }
 let card = dealCards()
 playerHand.push(card)
 render()
@@ -92,14 +96,19 @@ if (playerTotal > 21){
     messageEl.textContent ='you lose, dealer wins'
     dealerWins = dealerWins + 1
     dealerWinsEl.textContent = (dealerWins)
+    RoundOver = true
 }
 }
 function standCards(){
+    if (RoundOver === true){
+return
+    }
 while (dealerTotal < 17){
     let card = dealCards()
     dealerhand.push(card)
     render()
 }
+    
 checkWinner()
 }
 //checkwinner function is made for functions to specifically check if the dealer or player went over 21 and check and display who won while tracking the score
@@ -108,21 +117,51 @@ function checkWinner(){
         messageEl.textContent= 'Dealer went over 21. You win'
         playerWins = playerWins + 1
         playerWinsEl.textContent = (playerWins)
+        RoundOver = true
     } else if (playerTotal > dealerTotal){
         messageEl.textContent = 'You had a higher number. You win.'
         playerWins = playerWins + 1
         playerWinsEl.textContent = (playerWins)
+        RoundOver = true
     }
     else if (dealerTotal > playerTotal){
        messageEl.textContent = 'Dealer had a higher number. Dealer wins.'
         dealerWins = dealerWins + 1 
     dealerWinsEl.textContent = (dealerWins)
+    RoundOver = true
     }
     else(messageEl.textContent = 'Its a tie.')
+    RoundOver = true
+    if (playerWins === 5){
+        messageEl.textContent='Player won the game. Game over'
+        RoundOver = true
+    }
+    else if(dealerWins === 5){
+        messageEl.textContent = 'dealer won the game. Game over.'
+        RoundOver = true
+    }
 }
 function playgameagain(){
-
+    if (playerWins===5 || dealerWins ===5){
+        return
+    }
+roundStart()
 }
 function resetthegame(){
+  playerHand = []
+  dealerhand = []
+
+  playerWins = 0
+  dealerWins = 0
+
+  playerTotal = 0
+  dealerTotal = 0
+
+  messageEl.textContent = 'Press Start to begin.'
+
+  render()
+
+  playerWinsEl.textContent = playerWins
+  dealerWinsEl.textContent = dealerWins
 
 }
