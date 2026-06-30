@@ -41,3 +41,31 @@ body {
 .instructions h2 {
   color: #7ef9ff;
 }
+
+.wins-and-losses {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.wins-and-losses div {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.35);
+  border: 3px dashed #7ef9ff;
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+}
+
+.wins-and-losses h3 {
+  margin-top: 0;
+  color: #ffb3ec;
+}
+
+.wins-and-losses p {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff176;
+}
