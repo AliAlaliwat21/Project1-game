@@ -37,6 +37,7 @@ elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
 function roundStart(){
+   messageEl.textContent='choose hit or stand'
     playerHand = []
     dealerhand = []
     let card = dealCards()
@@ -51,12 +52,13 @@ console.log(playerHand)
 console.log(dealerhand)
 render()
 }
+//function which randomizes the order of cards given to you from the array in data.js
 function dealCards(){ 
     let randomIndex = Math.floor(Math.random() * deck.length)
     return deck[randomIndex]
 }
+//render function is used to display the cards on the playercardsel variable and display the name of the cards by the element.name and get total is called at the end of the function to calculate the total.
 function render(){
-    console.log('render')
     playercardsEl.textContent = ''
     dealerCardsEl.textContent = ''
 
@@ -72,7 +74,7 @@ function render(){
     playerTotalEl.textContent = playerTotal
     dealerTotalEl.textContent = dealerTotal
 }
-
+//calculates the total of the cards values that are placed in the array by taking the element.value
 function getTotal(hand){
     let total = 0
 
@@ -81,11 +83,11 @@ function getTotal(hand){
     })
     return total
 }
+//conditions written for hit cards so that if user or dealer go below 21 one of them loses and an else condition for a tie with the render function to display it
 function hitCards(){
 let card = dealCards()
 playerHand.push(card)
 render()
-
 if (playerTotal > 21){
     messageEl.textContent ='you lose, dealer wins'
     dealerWins = dealerWins + 1
@@ -93,7 +95,30 @@ if (playerTotal > 21){
 }
 }
 function standCards(){
-
+while (dealerTotal < 17){
+    let card = dealCards()
+    dealerhand.push(card)
+    render()
+}
+checkWinner()
+}
+//checkwinner function is made for functions to specifically check if the dealer or player went over 21 and check and display who won while tracking the score
+function checkWinner(){
+    if (dealerTotal > 21){
+        messageEl.textContent= 'Dealer went over 21. You win'
+        playerWins = playerWins + 1
+        playerWinsEl.textContent = (playerWins)
+    } else if (playerTotal > dealerTotal){
+        messageEl.textContent = 'You had a higher number. You win.'
+        playerWins = playerWins + 1
+        playerWinsEl.textContent = (playerWins)
+    }
+    else if (dealerTotal > playerTotal){
+       messageEl.textContent = 'Dealer had a higher number. Dealer wins.'
+        dealerWins = dealerWins + 1 
+    dealerWinsEl.textContent = (dealerWins)
+    }
+    else(messageEl.textContent = 'Its a tie.')
 }
 function playgameagain(){
 
