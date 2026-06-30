@@ -36,8 +36,10 @@ elstandbutton.addEventListener('click', standCards)
 elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
+startState()
 function roundStart(){
-   RoundOver = false
+  showPlayState()
+    RoundOver = false
     messageEl.textContent='choose hit or stand'
     playerHand = []
     dealerhand = []
@@ -95,11 +97,14 @@ if (playerTotal > 21){
     dealerWins = dealerWins + 1
     dealerWinsEl.textContent = (dealerWins)
     RoundOver = true
+    showRoundoverState()
     if(dealerWins === 5){
         messageEl.textContent = 'Dealer won the game. Game over'
+        gameOverState()
     }
     else {
         messageEl.textContent = 'You went over 21. Dealer wins.'
+        showRoundoverState()
     }
 }
 
@@ -140,16 +145,20 @@ function checkWinner(){
     RoundOver = true
     if (playerWins === 5){
         messageEl.textContent='Player won the game. Game over'
+        gameOverState()
         RoundOver = true
     }
     else if(dealerWins === 5){
         messageEl.textContent = 'dealer won the game. Game over.'
+        gameOverState()
         RoundOver = true
+    }
+    else{
+        showRoundoverState()
     }
 }
 function playgameagain(){
     if (playerWins===5 || dealerWins ===5){
-
         return
     }
 roundStart()
@@ -170,5 +179,30 @@ function resetthegame(){
 
   playerWinsEl.textContent = playerWins
   dealerWinsEl.textContent = dealerWins
+startState()
+}
+function startState(){
+elstartbutton.classList.remove('hidden')
+elhitbutton.classList.add('hidden')
+elstandbutton.classList.add('hidden')
+elplayagainbutton.classList.add('hidden')
+}
 
+function showPlayState(){
+elstartbutton.classList.add('hidden')
+elhitbutton.classList.remove('hidden')
+elstandbutton.classList.remove('hidden')
+elplayagainbutton.classList.add('hidden')
+}
+function showRoundoverState(){
+elstartbutton.classList.add('hidden')
+elhitbutton.classList.add('hidden')
+elstandbutton.classList.add('hidden')
+elplayagainbutton.classList.remove('hidden')
+}
+function gameOverState(){
+elstartbutton.classList.add('hidden')
+elhitbutton.classList.add('hidden')
+elstandbutton.classList.add('hidden')
+elplayagainbutton.classList.add('hidden')
 }
