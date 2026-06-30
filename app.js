@@ -36,7 +36,9 @@ elstandbutton.addEventListener('click', standCards)
 elplayagainbutton.addEventListener('click', playgameagain)
 elresetbutton.addEventListener('click', resetthegame)
 /*-------------------------------- Functions --------------------------------*/
+//start screen of the game displaying only start and reset button
 startState()
+//function which draws the cards and gives them to player and dealer and also the playstate is displayed
 function roundStart(){
   showPlayState()
     RoundOver = false
@@ -163,6 +165,7 @@ function playgameagain(){
     }
 roundStart()
 }
+//resets the game and score completely
 function resetthegame(){
   playerHand = []
   dealerhand = []
@@ -181,6 +184,8 @@ function resetthegame(){
   dealerWinsEl.textContent = dealerWins
 startState()
 }
+
+//states for the game buttons
 function startState(){
 elstartbutton.classList.remove('hidden')
 elhitbutton.classList.add('hidden')
