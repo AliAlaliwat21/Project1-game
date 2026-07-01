@@ -14,7 +14,7 @@ A browser-based Blackjack game where the player competes against the dealer. The
 
 [Deployed Game Link]
 
-`https://github.com/AliAlaliwat21/Project1-game`
+`https://alialaliwat21.github.io/Project1-game/`
 
 
 ### How to Play
