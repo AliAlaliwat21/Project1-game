@@ -1,3 +1,4 @@
+
 # Blackjack 🎪🃏
 
 A browser-based Blackjack game where the player competes against the dealer. The goal is to get closer to 21 without going over. The first side to reach 5 round wins wins the full game.
@@ -15,6 +16,8 @@ A browser-based Blackjack game where the player competes against the dealer. The
 [Deployed Game Link]
 
 `https://alialaliwat21.github.io/Project1-game/`
+
+
 
 
 ### How to Play
@@ -49,4 +52,4 @@ A browser-based Blackjack game where the player competes against the dealer. The
 `https://github.com/hanhaechi/playing-cards`
 - Sound effect from: 
 `https://pixabay.com/sound-effects/search/card/`
-- Thanks to my instructor and IAs for support and feedback.
+- Thanks to my instructor and IAs for the constant support and feedback throughout this project and honestly was a very memorable and enjoyable experience.
