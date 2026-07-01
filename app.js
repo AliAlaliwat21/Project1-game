@@ -10,7 +10,7 @@ let dealerWins = 0
 let playerTotal = 0
 let dealerTotal = 0
 
-
+const cardSound = new Audio('./assets/sound/card.drawsoundeffect.mp3.mp3')
 let RoundOver = false
 /*------------------------ Cached Element References ------------------------*/
 const elstartbutton = document.querySelector('#start-btn')
@@ -53,6 +53,7 @@ playerHand.push(card)
 playerHand.push(card2)
 dealerhand.push(card3)
 dealerhand.push(card4)
+playCardSound()
 render()
 }
 //function which randomizes the order of cards given to you from the array in data.js
@@ -103,6 +104,7 @@ function hitCards(){
     }
 let card = dealCards()
 playerHand.push(card)
+playCardSound()
 render()
 if (playerTotal > 21){
     messageEl.textContent = 'you lose'
@@ -220,4 +222,9 @@ elstartbutton.classList.add('hidden')
 elhitbutton.classList.add('hidden')
 elstandbutton.classList.add('hidden')
 elplayagainbutton.classList.add('hidden')
+}
+
+function playCardSound() {
+cardSound.currentTime = 0; 
+cardSound.play();
 }
